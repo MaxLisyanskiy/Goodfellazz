@@ -1,4 +1,5 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function(){
+
 		$('.toggle-hamburger__animx').on('click', function(){
 			$('.toggle-hamburger__animx').toggleClass('is-active');
 			if( $(this).hasClass('is-active')){
