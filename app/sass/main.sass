@@ -2,3 +2,381 @@
 
 // CUSTOM USER STYLES & IMPORTS
 
+/*======= Header =======*/
+.header 
+    margin: 24px 0 4px 0
+    display: flex
+    justify-content: space-between
+    text-align: center
+    &__img-link 
+        display: block
+        overflow: hidden
+    &__menu
+        display: flex
+        justify-content: space-between
+        padding-top: 22px
+        list-style-type: none
+        &_hide
+          display: none
+    &__item
+        margin-right: 37px
+        &:last-child
+            margin-right: 0
+    &__link
+        color: #6c6c6c
+        font-family: $Regular
+        font-size: 20px
+        transition: 0.1s all
+        padding-bottom: 19px
+        &:hover
+            color: #6c6c6c 
+            text-decoration: none
+            border-bottom: 3px solid $blue
+    
+/*======= Main =======*/
+.main
+  margin-top: 73px
+  &__item-wrapp
+      display: flex
+      flex-direction: column
+      align-items: center
+  &__title
+      padding-top: 27px
+      text-align: center
+      color: $blue
+      font-family: $Regular
+      font-size: 20px
+      font-weight: 400
+  &__text
+      text-align: center
+      font-family: $Regular
+      font-weight: 400
+  
+
+/*======= Shopping-cart =======*/
+.shopping-cart
+    margin: 91px 0 62px 0
+    &__first-wrapp
+        display: flex
+        flex-direction: column
+        align-items: center
+    &__title
+        color: #6f7173
+        font-family: $Regular
+        font-size: 42px
+        font-weight: 400
+    &__img
+        max-width: 70%
+    &__subtitle
+        margin-top: 59px
+        color: #6f7173
+        font-family: $Regular
+        font-size: 26px
+        font-weight: 400
+    &__text
+        font-family: $Regular
+        font-size: 15px
+        font-weight: 300
+        line-height: 36px
+
+
+/*======= Footer =======*/
+.footer
+    padding: 33px 0 44px 0
+    border-top: 1px solid rgba(0,0,0, .1)
+    &__text
+        text-align: center
+
+
+/*======= Hamburger =======*/
+.group
+  display: none
+.toggle-hamburger
+  background-color: $blue
+  display: block
+  position: relative
+  overflow: hidden
+  margin: 0
+  width: 58px
+  height: 44px
+  font-size: 0
+  text-indent: -9999px
+  appearance: none
+  box-shadow: none
+  border: none
+  border-radius: 3px
+  cursor: pointer
+  transition: background 0.3s
+  &:focus
+    outline: none
+  span
+    display: block
+    position: absolute
+    top: 20px
+    left: 10px
+    right: 10px
+    height: 6px
+    background: white
+    &::before,
+    &::after
+      position: absolute
+      display: block
+      left: 0
+      width: 100%
+      height: 6px
+      background-color: white
+      content: ""
+    &::before
+      top: -9px
+    &::after
+      bottom: -9px
+
+  &.toggle-hamburger__animx
+    background-color: $blue
+    span
+      transition: background 0s 0.3s
+      &::before,
+      &::after
+        transition-duration: 0.3s, 0.3s
+        transition-delay: 0.3s, 0s
+      &::before
+        transition-property: top, \transform
+      &::after
+        transition-property: bottom, \transform
+
+    &.is-active
+      span
+        background: none
+        &::before,
+        &::after
+          background-color: white
+          transition-delay: 0s, 0.3s
+        &::before
+          top: 0
+          transform: rotate(45deg)
+        &::after
+          bottom: 0
+          transform: rotate(-45deg)
+
+/*======= Carousel =======*/
+.carousel-slide
+  background: url('../images/dest/slider1.png') bottom center/cover no-repeat
+  &__inner
+    display: flex 
+    justify-content: space-between
+  &__img
+    width: auto 
+    margin: 38px 0 0 36px
+  &__text-wrapp
+    margin: 130px 95px 0 0
+  &__title
+    color: #ffffff
+    font-family: $Light
+    font-size: 42px
+    font-weight: 300
+  &__subtitle
+    color: #ffffff
+    font-family: $Light
+    font-size: 26px
+    font-weight: 300
+    line-height: 44.42px
+  &__btn
+    background-color: $blue
+    padding: 9px 11px
+    display: flex
+    align-items: center
+    margin: 34px 207px 0 12px
+    border-radius: 3px
+    transition: all 1s;
+    &:hover
+      text-decoration: none
+      background-color:#0b4799
+    span
+      color: #ffffff
+      font-family: $Light
+      font-size: 31px
+      font-weight: 300
+      margin-left: 11px
+
+.owl-next
+  margin-top: -20px
+  position: absolute
+  top: 50%
+  right: 10px
+
+.owl-prev 
+  left: 10px
+  margin-top: -20px
+  position: absolute
+  top: 50%;
+    
+
+// /*media Адаптивность*/
+
+// /* Экстрамалые девайсы («портретные телефоны», < 425px)*/
+@media (min-width: 320px) and (max-width: 424.98px) 
+  .header
+    margin-bottom: 18px
+    &__item
+      margin-right: 0
+      margin-bottom: 15px
+    &__link
+      padding-bottom: 3px
+    &__menu
+      display: none
+      &_hide
+        text-align: center
+        padding-inline-start: 0px 
+  .group
+    display: block 
+  .carousel-slide
+    &__img
+      width: 100px
+      height: 130px
+      margin: 24px 0 0 0
+    &__text-wrapp
+      margin: 19px 0 0 32px
+    &__title
+      font-size: 16px
+    &__subtitle
+      font-size: 12px
+      font-weight: 300
+      line-height: 18.42px
+    &__btn
+      margin: 13px 25px 0 0px;
+      padding: 5px 11px;
+      span
+        font-size: 13px
+  .main
+    margin-top: 21px
+    &_border
+      padding-bottom: 18px 
+      padding-top: 18px
+      border-bottom: 1px solid rgba(0,0,0, .1)
+    &__item-wrapp
+      flex-direction: row
+    &__img
+      width: 100px
+    &__title
+      padding-top: 11px
+    &__text
+      text-align: left
+      margin-left: 10px
+      font-size: 11px
+  .shopping-cart
+    margin: 48px 0 46px 0
+    &__title
+      font-size: 30px
+    &__subtitle
+      margin-top: 20px
+      font-size: 24px
+
+//  /*Экстрамалые девайсы («портретные телефоны», < 576px)*/
+@media (min-width: 425px) and (max-width: 575.98px) 
+  .header
+    margin-bottom: 18px
+    &__item
+      margin-right: 0
+      margin-bottom: 15px
+    &__link
+      padding-bottom: 3px
+    &__menu
+      display: none
+      &_hide
+        text-align: center
+        padding-inline-start: 0px 
+  .group
+    display: block 
+  .carousel-slide
+    &__img
+      width: 175px
+      height: 190px
+      margin: 24px 0 0 8px
+    &__text-wrapp
+      margin: 23px 0 0 8px
+    &__title
+      font-size: 21px
+    &__subtitle
+      font-size: 18px
+      font-weight: 300
+      line-height: 33.42px
+    &__btn
+      margin: 17px 25px 0 0px;
+      padding: 9px 11px;
+      span
+        font-size: 20px
+
+// /* Малые девайсы («ландшафтные», >= 575px)*/
+@media (min-width: 576px) and (max-width: 767.98px) 
+  .header
+    margin-bottom: 18px
+    &__item
+      margin-right: 0
+      margin-bottom: 15px
+    &__link
+      padding-bottom: 3px
+    &__menu
+      display: none
+      &_hide
+        text-align: center
+        padding-inline-start: 0px 
+  .group
+    display: block 
+  .carousel-slide
+    &__img
+      width: 175px
+      height: 190px
+      margin: 24px 0 0 37px
+    &__text-wrapp
+      margin: 23px 0 0 8px
+    &__title
+      font-size: 28px
+    &__subtitle
+      font-size: 18px
+      font-weight: 300
+      line-height: 33.42px
+    &__btn
+      margin: -3px 64px 0 0px
+      padding: 9px 11px
+      span
+        font-size: 26px
+
+// /* Средние девайсы («таблетки», >= 768px)*/ 
+@media (min-width: 768px) and (max-width: 991.98px) 
+  .header
+    margin-bottom: 18px
+    &__item
+      margin-right: 0
+      margin-bottom: 15px
+    &__link
+      padding-bottom: 3px
+    &__menu
+      display: none
+      &_hide
+        text-align: center
+        padding-inline-start: 0px  
+  .group
+    display: block 
+  .carousel-slide
+    &__img
+      width: 42%
+    &__text-wrapp
+      margin: 86px 0 0 8px
+    &__title
+      font-size: 38px
+    &__subtitle
+      font-size: 27px
+      font-weight: 300
+      line-height: 44.42px
+    &__btn
+      margin: 22px 94px 0 0px
+      padding: 10px 11px
+      span
+        font-size: 34px
+
+// /* Большие девайсы (большие десктопы, >= 992px)*/
+// @media (min-width: 992px) and (max-width: 1199.98px) 
+
+
+// // /* Большие девайсы (большие десктопы, >= 1200px)*/
+// @media (max-width: 5000px) 
